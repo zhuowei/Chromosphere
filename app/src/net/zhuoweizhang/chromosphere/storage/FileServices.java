@@ -7,7 +7,7 @@ import java.io.*;
 import com.ansca.corona.storage.*;
 
 public class FileServices extends com.ansca.corona.storage.FileServices {
-	private static File redirectFile = new File("/sdcard/winprogress/smth.apk");
+	private static File redirectFile = new File("/sdcard/winprogress/chromosphere.zip");
 	private static ZipResourceFile redirectResFile;
 	public FileServices(Context context) {
 		super(context);
@@ -24,7 +24,7 @@ public class FileServices extends com.ansca.corona.storage.FileServices {
 		}
 		if (resFile == null)
 			return super.getAssetFileLocation(str);
-		String name = "assets/" + str;
+		String name = str;
 		ZipResourceFile.ZipEntryRO entry = resFile.getEntry(name);
 		System.out.println(entry);
 		if (entry == null)
