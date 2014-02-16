@@ -1,0 +1,6 @@
+*.class
+bin
+gen
+local.properties
+ant.properties
+*.keystore

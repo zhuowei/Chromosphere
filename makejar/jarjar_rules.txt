@@ -1,0 +1,3 @@
+rule com.ansca.corona.storage.FileServices net.zhuoweizhang.chromosphere.storage.FileServices
+zap android.**
+zap com.ansca.corona.R*

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="net.zhuoweizhang.chromosphere"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
+    <application android:label="@string/app_name" >
+        <activity android:name="MainActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ansca.corona.CameraActivity" android:screenOrientation="portrait" android:theme="@*android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ansca.corona.VideoActivity" android:theme="@*android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ansca.corona.purchasing.StoreActivity" android:theme="@*android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.LoginActivity" android:theme="@*android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ansca.corona.facebook.FacebookFragmentActivity" android:theme="@*android:style/Theme.NoTitleBar.Fullscreen"/>
+        <provider android:authorities="net.zhuoweizhang.chromosphere.files" android:exported="true" android:name="com.ansca.corona.storage.FileContentProvider"/>
+        <service android:name="com.ansca.corona.CoronaService"/>
+        <receiver android:name="com.ansca.corona.SystemStartupBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ansca.corona.notifications.AlarmManagerBroadcastReceiver"/>
+        <receiver android:name="com.ansca.corona.notifications.StatusBarBroadcastReceiver"/>
+        <receiver android:name="com.ansca.corona.notifications.GoogleCloudMessagingBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="net.zhuoweizhang.chromosphere"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ansca.corona.purchasing.GoogleStoreBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+                <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest> 
