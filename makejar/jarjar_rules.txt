@@ -1,3 +1,5 @@
 rule com.ansca.corona.storage.FileServices net.zhuoweizhang.chromosphere.storage.FileServices
+zap com.google.android.vending.licensing.LicenseChecker
+rule com.google.android.vending.licensing.LicenseChecker net.zhuoweizhang.chromosphere.licensing.play.LicenseChecker
 zap android.**
 zap com.ansca.corona.R*

@@ -1,3 +1,4 @@
+#!/bin/sh
 rm corona.jar MyCoronaActivity-signed-aligned_dex2jar.jar coronafile.jar
 rm -r com
 
@@ -9,7 +10,9 @@ dex2jar MyCoronaActivity-signed-aligned.apk
 java -jar jarjar-1.4.jar process jarjar_rules.txt MyCoronaActivity-signed-aligned_dex2jar.jar corona.jar
 rm -r coronares
 apktool d MyCoronaActivity-signed-aligned.apk coronares
+./patchcorona.sh
 cp -r coronares/res ../coronalib/
 cp -r coronares/lib/* ../coronalib/libs/
 cp corona.jar ../coronalib/libs/
 cp coronafile.jar ../coronalib/libs/
+mkdir ../coronalib/src 2>/dev/null
